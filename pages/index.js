@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import CampaignCard from '../components/card.jsx'
 import { createClient } from 'contentful'
+import { Component } from 'react'
+import SupportButton from '../components/button.jsx'
+
 
 export async function getStaticProps() {
 
@@ -21,7 +23,7 @@ export async function getStaticProps() {
 
 }
 
-export default function Home() {
+export default function Home({campaigns}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -39,35 +41,258 @@ export default function Home() {
         <div className="">
         </div>
           <div className="d-flex justify-content-center my-3">
-            <div className="dropdown mx-2">
-                <button className="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Sort
-            </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="">Zakat</a>
-                </div>
-            </div>
-            <div className="dropdown mx-2">
-                <button className="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filter
-            </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Action</a>
-                    <a className="dropdown-item" href="#">Another action</a>
-                    <a className="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
+           
+           
         </div>
-        
-        <div className="album py-5">
+
+        <div className="d-flex mycontainer justify-content-around"> 
+          <div className="w-25 d-flex flex-column"> 
+              <p className="mx-2 text-muted"> SORT </p>
+            <div className="d-flex justify-content-between align-items-center mx-2"> 
+            <label for="vehicle1"> Zakat</label>
+            <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              
+            </div>
+
+            <p className="border-bottom border-secondary my-2"></p>
+
+          
+
+            <p className="mx-2 text-muted"> FILTER </p>
+            <div className="d-flex justify-content-between align-items-center mx-2"> 
+            <label for="vehicle1"> Almost funded</label>
+            <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              
+            </div>
+
+            <div className="d-flex justify-content-between align-items-center mx-2"> 
+            <label for="vehicle1">Newest</label>
+            <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              
+            </div>
+
+            <div className="d-flex justify-content-between align-items-center mx-2">  
+            <label for="vehicle1"> Needs love</label>
+            <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              
+            </div>
+
+            <div className="d-flex justify-content-between align-items-center mx-2">  
+            <label for="vehicle1"> Ending soon</label>
+            <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
+              
+            </div>
+            <p className="border-bottom border-secondary my-1"></p>
+
+              
+          </div>
+        <div className="py-5 album pt-0">
         <div className="container">
 
             <div className="row">
+              <div className="col-md-4">
+                    <div className="card mb-4 shadow overflow-hidden rounded">
+                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src= {campaigns[0].fields.campaignimage}
+                            data-holder-rendered="true"/>
+                        <div className="card-body">
+                            <h3 className="card-text text-left">{campaigns[0].fields.campaignTitle}</h3>
 
-            <CampaignCard />
-                
+                            <div className="d-flex">
+                                <div className="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg> <span className="mx-1"> 24</span>
+                                </div>
+
+                                <div className="d-flex align-items-center mx-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg> <span className="mx-1"> 4 days </span>
+                                </div>
+                            </div>
+
+                            <div className="progress my-3 rounded-pill">
+                                <div className="progress-bar bg-success rounded-pill w-25 " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 className="my-0">$587</h5>
+                                    <p className="gray">funded of $20K</p>
+                                </div>
+
+                                <div className="btn-group">
+                                <SupportButton />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card mb-4 shadow overflow-hidden rounded">
+                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src={campaigns[1].fields.campaignimage}
+                            data-holder-rendered="true"/>
+                        <div className="card-body">
+                            <h3 className="card-text text-left">{campaigns[1].fields.campaignTitle}</h3>
+
+                            <div className="d-flex">
+                                <div className="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg> <span className="mx-1"> 24</span>
+                                </div>
+
+                                <div className="d-flex align-items-center mx-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg> <span className="mx-1"> 4 days </span>
+                                </div>
+                            </div>
+
+                            <div className="progress my-3 rounded-pill">
+                                <div className="progress-bar bg-success rounded-pill w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 className="my-0">$587</h5>
+                                    <p className="gray">funded of $20K</p>
+                                </div>
+
+                                <div className="btn-group">
+                                <SupportButton />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card mb-4 shadow overflow-hidden rounded">
+                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src={campaigns[2].fields.campaignimage}
+                            data-holder-rendered="true"/>
+                        <div className="card-body">
+                            <h3 className="card-text text-left">{campaigns[2].fields.campaignTitle}</h3>
+
+                            <div className="d-flex">
+                                <div className="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg> <span className="mx-1"> 24</span>
+                                </div>
+
+                                <div className="d-flex align-items-center mx-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg> <span className="mx-1"> 4 days </span>
+                                </div>
+                            </div>
+
+                            <div className="progress my-3 rounded-pill">
+                                <div className="progress-bar bg-success rounded-pill " role="progressbar" style={{"width" : "{campaigns[2].fields.goalPercentage}" }} aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 className="my-0">$587</h5>
+                                    <p className="gray">funded of $20K</p>
+                                </div>
+
+                                <div className="btn-group">
+                                <SupportButton />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card mb-4 shadow overflow-hidden rounded">
+                        <img className="card-img-top"  alt="Thumbnail [100%x225]" src={campaigns[4].fields.campaignimage}
+                            data-holder-rendered="true"/>
+                        <div className="card-body">
+                            <h3 className="card-text text-left">{campaigns[4].fields.campaignTitle}</h3>
+
+                            <div className="d-flex">
+                                <div className="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg> <span className="mx-1"> 24</span>
+                                </div>
+
+                                <div className="d-flex align-items-center mx-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg> <span className="mx-1"> 4 days </span>
+                                </div>
+                            </div>
+
+                            <div className="progress my-3 rounded-pill">
+                                <div className="progress-bar bg-success rounded-pill " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 className="my-0">$587</h5>
+                                    <p className="gray">funded of $20K</p>
+                                </div>
+
+                                <div className="btn-group">
+                                <SupportButton />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4">
+                    <div className="card mb-4 shadow overflow-hidden rounded">
+                        <img className="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src={campaigns[5].fields.campaignimage}
+                            data-holder-rendered="true"/>
+                        <div className="card-body">
+                            <h3 className="card-text text-left">{campaigns[5].fields.campaignTitle}</h3>
+
+                            <div className="d-flex">
+                                <div className="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
+                                    <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg> <span className="mx-1"> 24</span>
+                                </div>
+
+                                <div className="d-flex align-items-center mx-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg> <span className="mx-1"> 4 days </span>
+                                </div>
+                            </div>
+
+                            <div className="progress my-3 rounded-pill">
+                                <div className="progress-bar bg-success rounded-pill " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div className="d-flex flex-row justify-content-between align-items-center">
+
+                                <div>
+                                    <h5 className="my-0">$587</h5>
+                                    <p className="gray">funded of $20K</p>
+                                </div>
+
+                                <div className="btn-group">
+                                <SupportButton />
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
        
@@ -75,3 +300,4 @@ export default function Home() {
     </div>
   )
 }
+
