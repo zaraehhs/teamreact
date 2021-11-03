@@ -21,17 +21,7 @@ export async function getStaticProps() {
 
 }
 
-// export default function Campaigns({campaigns}) {
-//   console.log(campaigns);
-//   return (
-//     <div className="Campaigns">
-//       This is just to see the data***
-//     </div>
-//   )
-// }
-
-export default function Home({campaigns}) {
-  console.log(campaigns)
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -46,33 +36,33 @@ export default function Home({campaigns}) {
         Campaigns on LaunchGood
         </h1>
 
-        <div class="">
+        <div className="">
         </div>
-          <div class="d-flex justify-content-center my-3">
-            <div class="dropdown mx-2">
-                <button class="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <div className="d-flex justify-content-center my-3">
+            <div className="dropdown mx-2">
+                <button className="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sort
             </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="">Zakat</a>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item" href="">Zakat</a>
                 </div>
             </div>
-            <div class="dropdown mx-2">
-                <button class="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className="dropdown mx-2">
+                <button className="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Filter
             </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item" href="#">Action</a>
+                    <a className="dropdown-item" href="#">Another action</a>
+                    <a className="dropdown-item" href="#">Something else here</a>
                 </div>
             </div>
         </div>
         
-        <div class="album py-5">
-        <div class="container">
+        <div className="album py-5">
+        <div className="container">
 
-            <div class="row">
+            <div className="row">
 
             <CampaignCard />
                 
