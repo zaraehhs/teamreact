@@ -2,10 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import CampaignCard from '../components/card.jsx'
-import FilterPill from '../components/pills.jsx'
-import SupportButton from '../components/button.jsx'
-
-
 
 
 
@@ -19,18 +15,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="jumbotron text-center">
-        <h1 className="jumbotron-heading py-5">
+      <main className="jumbotron ">
+        <h1 className="jumbotron-heading text-center py-5">
         Campaigns on LaunchGood
         </h1>
 
         <div class="">
-        <FilterPill />         
         </div>
-
           <div class="d-flex justify-content-center my-3">
             <div class="dropdown mx-2">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sort
             </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -38,7 +32,7 @@ export default function Home() {
                 </div>
             </div>
             <div class="dropdown mx-2">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-secondary dropdown-toggle rounded-pill" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Filter
             </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -49,7 +43,7 @@ export default function Home() {
             </div>
         </div>
         
-        <div class="album py-5 bg-light">
+        <div class="album py-5">
         <div class="container">
 
             <div class="row">

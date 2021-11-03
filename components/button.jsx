@@ -1,6 +1,6 @@
 const SupportButton = () => {
     return (
-    <button type="button" class="btn btn-sm btn-outline-success px-3 rounded-3">Support</button>
+    <button type="button" class="btn btn-m btn-success px-3 rounded-pill">Support</button>
   );
 
 }
