@@ -2,10 +2,36 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
 import CampaignCard from '../components/card.jsx'
+import { createClient } from 'contentful'
 
+export async function getStaticProps() {
 
+  const client = createClient({
+    space: 'svltlb1ky1ti',
+    accessToken: 'VKaKj9cGGuJ5lgCxTVych8ny-vGF3HGP_cow0828Yuk',
+  })
 
-export default function Home() {
+  const res = await client.getEntries({ content_type: 'campaigns' })
+
+  return {
+    props: {
+      campaigns: res.items
+    }
+  }
+
+}
+
+// export default function Campaigns({campaigns}) {
+//   console.log(campaigns);
+//   return (
+//     <div className="Campaigns">
+//       This is just to see the data***
+//     </div>
+//   )
+// }
+
+export default function Home({campaigns}) {
+  console.log(campaigns)
   return (
     <div className={styles.container}>
       <Head>
