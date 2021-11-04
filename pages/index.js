@@ -48,7 +48,7 @@ export default function Home({campaigns}) {
 
         <div className="d-flex mycontainer justify-content-around"> 
           <div className="w-25 d-flex flex-column"> 
-              <p className="mx-2 text-muted"> SORT </p>
+              <p className="mx-2 text-muted" > SORT </p>
             <div className="d-flex justify-content-between align-items-center mx-2"> 
             <label for="vehicle1"> Zakat</label>
             <input className="my-3 mx-2" type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
@@ -114,7 +114,7 @@ export default function Home({campaigns}) {
                             </div>
 
                             <div className="progress my-3 rounded-pill">
-                                <div className="progress-bar bg-success rounded-pill w-25 " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-success rounded-pill w-75 " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
@@ -154,7 +154,7 @@ export default function Home({campaigns}) {
                             </div>
 
                             <div className="progress my-3 rounded-pill">
-                                <div className="progress-bar bg-success rounded-pill w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-success rounded-pill w-50" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
@@ -194,7 +194,7 @@ export default function Home({campaigns}) {
                             </div>
 
                             <div className="progress my-3 rounded-pill">
-                                <div className="progress-bar bg-success rounded-pill " role="progressbar" style={{"width" : "{campaigns[2].fields.goalPercentage}" }} aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-success rounded-pill w-25" role="progressbar" style={{"width" : "{campaigns[2].fields.goalPercentage}" }} aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
@@ -234,7 +234,7 @@ export default function Home({campaigns}) {
                             </div>
 
                             <div className="progress my-3 rounded-pill">
-                                <div className="progress-bar bg-success rounded-pill " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-success rounded-pill w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
@@ -274,7 +274,7 @@ export default function Home({campaigns}) {
                             </div>
 
                             <div className="progress my-3 rounded-pill">
-                                <div className="progress-bar bg-success rounded-pill " role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div className="progress-bar bg-success rounded-pill w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
