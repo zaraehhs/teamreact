@@ -24,6 +24,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({campaigns}) {
+  console.log(campaigns)
   return (
     <div className={styles.container}>
       <Head>
@@ -101,14 +102,14 @@ export default function Home({campaigns}) {
                                 <div className="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                                </svg> <span className="mx-1"> 24</span>
+                                </svg> <span className="mx-1">{campaigns[0].fields.numberOfDonors}</span>
                                 </div>
 
                                 <div className="d-flex align-items-center mx-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                </svg> <span className="mx-1"> 4 days </span>
+                                </svg> <span className="mx-1"> {campaigns[0].fields.daysRemaining} days </span>
                                 </div>
                             </div>
 
@@ -118,8 +119,8 @@ export default function Home({campaigns}) {
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 className="my-0">$587</h5>
-                                    <p className="gray">funded of $20K</p>
+                                    <h5 className="my-0">${campaigns[0].fields.amountFunded}</h5>
+                                    <p className="gray">funded of ${campaigns[0].fields.goalAmount}</p>
                                 </div>
 
                                 <div className="btn-group">
@@ -141,14 +142,14 @@ export default function Home({campaigns}) {
                                 <div className="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                                </svg> <span className="mx-1"> 24</span>
+                                </svg> <span className="mx-1"> {campaigns[1].fields.numberOfDonors}</span>
                                 </div>
 
                                 <div className="d-flex align-items-center mx-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                </svg> <span className="mx-1"> 4 days </span>
+                                </svg> <span className="mx-1"> {campaigns[1].fields.daysRemaining} days </span>
                                 </div>
                             </div>
 
@@ -158,8 +159,8 @@ export default function Home({campaigns}) {
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 className="my-0">$587</h5>
-                                    <p className="gray">funded of $20K</p>
+                                    <h5 className="my-0">${campaigns[1].fields.amountFunded}</h5>
+                                    <p className="gray">funded of $25k</p>
                                 </div>
 
                                 <div className="btn-group">
@@ -181,14 +182,14 @@ export default function Home({campaigns}) {
                                 <div className="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                                </svg> <span className="mx-1"> 24</span>
+                                </svg> <span className="mx-1">{campaigns[2].fields.numberOfDonors}</span>
                                 </div>
 
                                 <div className="d-flex align-items-center mx-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                </svg> <span className="mx-1"> 4 days </span>
+                                </svg> <span className="mx-1"> {campaigns[2].fields.daysRemaining} days </span>
                                 </div>
                             </div>
 
@@ -198,7 +199,7 @@ export default function Home({campaigns}) {
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 className="my-0">$587</h5>
+                                    <h5 className="my-0">${campaigns[2].fields.amountFunded}</h5>
                                     <p className="gray">funded of $20K</p>
                                 </div>
 
@@ -221,14 +222,14 @@ export default function Home({campaigns}) {
                                 <div className="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                                </svg> <span className="mx-1"> 24</span>
+                                </svg> <span className="mx-1"> {campaigns[4].fields.numberOfDonors}</span>
                                 </div>
 
                                 <div className="d-flex align-items-center mx-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                </svg> <span className="mx-1"> 4 days </span>
+                                </svg> <span className="mx-1"> {campaigns[4].fields.daysRemaining} days </span>
                                 </div>
                             </div>
 
@@ -238,8 +239,8 @@ export default function Home({campaigns}) {
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 className="my-0">$587</h5>
-                                    <p className="gray">funded of $20K</p>
+                                    <h5 className="my-0">${campaigns[4].fields.amountFunded}</h5>
+                                    <p className="gray">funded of $50K</p>
                                 </div>
 
                                 <div className="btn-group">
@@ -261,14 +262,14 @@ export default function Home({campaigns}) {
                                 <div className="d-flex align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-people" viewBox="0 0 16 16">
                                     <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                                </svg> <span className="mx-1"> 24</span>
+                                </svg> <span className="mx-1"> {campaigns[5].fields.numberOfDonors}</span>
                                 </div>
 
                                 <div className="d-flex align-items-center mx-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-clock" viewBox="0 0 16 16">
                                     <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
                                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
-                                </svg> <span className="mx-1"> 4 days </span>
+                                </svg> <span className="mx-1"> {campaigns[5].fields.daysRemaining} days </span>
                                 </div>
                             </div>
 
@@ -278,8 +279,8 @@ export default function Home({campaigns}) {
                             <div className="d-flex flex-row justify-content-between align-items-center">
 
                                 <div>
-                                    <h5 className="my-0">$587</h5>
-                                    <p className="gray">funded of $20K</p>
+                                    <h5 className="my-0">${campaigns[5].fields.amountFunded}</h5>
+                                    <p className="gray">funded of $10K</p>
                                 </div>
 
                                 <div className="btn-group">
